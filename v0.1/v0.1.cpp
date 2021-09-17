@@ -15,9 +15,9 @@ using std::right;
 
 struct studentas {
     string vardas, pavarde;
-    float nd[10]; //namu darbu rezultatai
-    float egz; //egzamino rezultatas
-    float galutinis;
+    double nd[10]; //namu darbu rezultatai
+    double egz; //egzamino rezultatas
+    double galutinis;
 };
 
 void print(studentas& kint);
@@ -43,8 +43,8 @@ void pild(studentas& kint) //informacijos pildymo funkcija
     cout << "Iveskite studento vardo ir pavarde: "; cin >> kint.vardas >> kint.pavarde;
     cout << "Kiek namu darbu bus? (1-10): "; cin >> n; cout << endl;
     cout << "Iveskite namu darbu pazymius: " << endl;
-    float sum = 0, //bus saugoma bendra visu pazymiu suma
-    float vid = 0; // visu pazymiu vidurkis
+    double sum = 0; //bus saugoma bendra visu pazymiu suma
+    double vid = 0; // visu pazymiu vidurkis
     for (int i = 0; i < n; i++)
     {
         cin >> kint.nd[i];
@@ -55,9 +55,9 @@ void pild(studentas& kint) //informacijos pildymo funkcija
     kint.galutinis = 0.4 * vid + 0.6 * kint.egz; //apskaiciuojamas galutinis balas
 }
 
-void print(studentas& kin) //spausdinimo funkcija
+void print(studentas& kint) //spausdinimo funkcija
 {
-    cout << left << setw(12) << kin.pavarde << setw(12) << kin.vardas << setw(10) << setprecision(3) << kin.galutinis << endl;
+    cout << left << setw(12) << kint.pavarde << setw(12) << kint.vardas << setw(10) << setprecision(3) << kint.galutinis << endl;
 }
 
 
