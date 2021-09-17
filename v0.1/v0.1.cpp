@@ -22,7 +22,7 @@ struct studentas {
 
 void print(studentas& kint);
 void pild(studentas& kint);
-studentas studentai[10];
+studentas studentai[10]; //sukuriamas studentu sarasas
 
 
 int main()
@@ -30,42 +30,36 @@ int main()
     int m; //studentu skaicius
     cout << "Iveskite studentu skaiciu: "; cin >> m; cout << endl;
     for (int i = 0; i < m; i++)
-        pild(studentai[i]);
+        pild(studentai[i]); //bus pildoma informacija apie studenta
     cout << left << setw(12) << "Pavarde" << setw(12) << "Vardas" << setw(10) << "Galutinis (vid.) " << endl;
     for (int i = 0; i < m; i++)
-        print(studentai[i]);
+        print(studentai[i]); //spausdinami rezultatai 
     
 }
 
-void pild(studentas& kint)
+void pild(studentas& kint) //informacijos pildymo funkcija
 {
     int n; //namu darbu skaicius
     cout << "Iveskite studento vardo ir pavarde: "; cin >> kint.vardas >> kint.pavarde;
     cout << "Kiek namu darbu bus? (1-10): "; cin >> n; cout << endl;
     cout << "Iveskite namu darbu pazymius: " << endl;
-    float sum = 0, vid = 0;
+    float sum = 0, //bus saugoma bendra visu pazymiu suma
+    float vid = 0; // visu pazymiu vidurkis
     for (int i = 0; i < n; i++)
     {
         cin >> kint.nd[i];
         sum = sum + kint.nd[i];
     }
-    vid = sum / n;
+    vid = sum / n; //skaiciuojame pazymiu vidurki 
     cout << "Iveskite egzamino pazymi: "; cin >> kint.egz;
-    kint.galutinis = 0.4 * vid + 0.6 * kint.egz;
+    kint.galutinis = 0.4 * vid + 0.6 * kint.egz; //apskaiciuojamas galutinis balas
 }
 
-void print(studentas& kin)
+void print(studentas& kin) //spausdinimo funkcija
 {
-    cout << left << setw(12) << kin.vardas << setw(12) << kin.pavarde << setw(10) << setprecision(2) << kin.galutinis << endl;
+    cout << left << setw(12) << kin.pavarde << setw(12) << kin.vardas << setw(10) << setprecision(3) << kin.galutinis << endl;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+
+
