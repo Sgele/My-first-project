@@ -68,7 +68,7 @@ void pild(studentas& kint) //informacijos pildymo funkcija
         kint.galutinis = 0.4 * vid + 0.6 * kint.egz; //apskaiciuojamas galutinis balas
     }
     else {
-        kint.galutinis = mediana;
+        kint.galutinis = 0.4 * mediana + 0.6 * kint.egz;
     }
     
 }
