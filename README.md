@@ -9,3 +9,7 @@
 1. Viskas analogiška kaip ir "v0.1", tik pridėta medianos radimas programoje.
 2. Papildomai struktūroje "Studentas" pridėtas dar vienas double tipo kintamasis "mediana", į kurį įrašysime gautą rezultatą apskaičiavus medianą.
 3. Medianos skaičiavimas parašytas f-joje "void pild(studentas& kint)"
+
+* v0.1 kai nezinom nd skaicius is anksto
+* 1. Buvo sukurtas dar vienas ciklas, kuriame aprašyta sąlyga kaip programa turi elgtis, kai yra nežinomas nd skaičius iš anksto.
+* 
