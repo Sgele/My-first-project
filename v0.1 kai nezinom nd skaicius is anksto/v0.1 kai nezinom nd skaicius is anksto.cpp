@@ -41,7 +41,7 @@ int main()
 void pild(studentas& kint) //informacijos pildymo funkcija
 {
     int n; //namu darbu skaicius
-    int sk; //vartotojo pasirinktas skaicius (0 arba 1) is kurio programa zinos kaip elgtis toliau
+    int sk; 
     double sum = 0; //bus saugoma bendra visu pazymiu suma
     double vid = 0; // visu pazymiu vidurkis
     cout << "Iveskite studento vardo ir pavarde: "; cin >> kint.vardas >> kint.pavarde;
@@ -80,7 +80,7 @@ void pild(studentas& kint) //informacijos pildymo funkcija
             kint.mediana = (double)(kint.nd[(k - 1) / 2] + kint.nd[k / 2]) / 2.0;
         }
         cout << "Iveskite egzamino pazymi: "; cin >> kint.egz;
-        kint.galutinis = 0.4 * vid + 0.6 * kint.egz; //apskaiciuojamas galutinis balas?????
+        kint.galutinis = 0.4 * vid + 0.6 * kint.egz; //apskaiciuojamas galutinis balas
 
     }
     if (sk > 0) 
