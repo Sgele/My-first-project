@@ -17,7 +17,6 @@ struct studentas {
     double nd[10]; //namu darbu rezultatai
     double egz; //egzamino rezultatas
     double galutinis;
-    double mediana;
 };
 
 void print(studentas& kint);
@@ -44,6 +43,7 @@ void pild(studentas& kint) //informacijos pildymo funkcija
     int sk; 
     double sum = 0; //bus saugoma bendra visu pazymiu suma
     double vid = 0; // visu pazymiu vidurkis
+    double mediana = 0;
     cout << "Iveskite studento vardo ir pavarde: "; cin >> kint.vardas >> kint.pavarde;
     cout << "Parasykite, jeigu zinote namu darbu skaiciu (1-10), jeigu nezinote, parasykite '-1'" << endl;
     cin >> sk;
@@ -73,15 +73,14 @@ void pild(studentas& kint) //informacijos pildymo funkcija
         sort(kint.nd, kint.nd + k);
         if (k % 2 != 0)
         {
-            kint.mediana = (double)kint.nd[k / 2];
+            mediana = (double)kint.nd[k / 2];
         }
         else
         {
-            kint.mediana = (double)(kint.nd[(k - 1) / 2] + kint.nd[k / 2]) / 2.0;
+            mediana = (double)(kint.nd[(k - 1) / 2] + kint.nd[k / 2]) / 2.0;
         }
         cout << "Iveskite egzamino pazymi: "; cin >> kint.egz;
-        kint.galutinis = 0.4 * vid + 0.6 * kint.egz; //apskaiciuojamas galutinis balas
-
+        
     }
     if (sk > 0) 
     {
@@ -93,24 +92,30 @@ void pild(studentas& kint) //informacijos pildymo funkcija
           }
           
         vid = sum / sk; //skaiciuojame pazymiu vidurki
+        cout << "Iveskite egzamino pazymi: "; cin >> kint.egz;
         sort(kint.nd, kint.nd + sk);
 
         
         if (sk % 2 != 0)
-            kint.mediana = (double)kint.nd[sk / 2];
+            mediana = (double)kint.nd[sk / 2];
         else
         {
-           kint.mediana =  (double)(kint.nd[(sk - 1) / 2] + kint.nd[sk / 2]) / 2.0;
+           mediana =  (double)(kint.nd[(sk - 1) / 2] + kint.nd[sk / 2]) / 2.0;
 
         }
-        cout << "Iveskite egzamino pazymi: "; cin >> kint.egz;
-        kint.galutinis = 0.4 * vid + 0.6 * kint.egz; //apskaiciuojamas galutinis balas?????
+    }
+    int m; //pagal si kintamaji nusprendziam ar vartotojas nori medianos ar vidurkio;
+    cout << "Jeigu norite, kad galutinis pazymys butu su vidurkiu iveskite 0, jeigu su mediana - 1: "; cin >> m; cout << endl;
+    if (m == 0) {
+        kint.galutinis = 0.4 * vid + 0.6 * kint.egz; //apskaiciuojamas galutinis balas
+    }
+    else {
+        kint.galutinis = mediana;
     }
 }
 
 void print(studentas& kint) //spausdinimo funkcija
 {
-    cout << left << setw(12) << kint.pavarde << setw(12) << kint.vardas << setw(10) << setprecision(3) << kint.galutinis;
-    cout << right << setw(10) << kint.mediana << endl;
+    cout << left << setw(12) << kint.pavarde << setw(12) << kint.vardas << setw(10) << setprecision(3) << kint.galutinis << endl;
 
 }
