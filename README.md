@@ -11,5 +11,5 @@
 3. Medianos skaičiavimas parašytas f-joje "void pild(studentas& kint)"
 
 * v0.1 kai nezinom nd skaicius is anksto
-* 1. Buvo sukurtas dar vienas ciklas, kuriame aprašyta sąlyga kaip programa turi elgtis, kai yra nežinomas nd skaičius iš anksto.
-* 
+1. Buvo sukurtas dar vienas ciklas, kuriame aprašyta sąlyga kaip programa turi elgtis, kai yra nežinomas nd skaičius iš anksto.
+ 
