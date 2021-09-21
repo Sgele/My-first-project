@@ -12,4 +12,9 @@
 
 * v0.1 kai nezinom nd skaicius is anksto
 1. Buvo sukurtas dar vienas ciklas, kuriame aprašyta sąlyga kaip programa turi elgtis, kai yra nežinomas nd skaičius iš anksto.
+
+* v0.1 su atsitiktiniu skaiciu generavimu
+1. Sukurta dar viena 'if' salyga, kurioje vartotojas irases '-2' gaus atsitiktinai sugeneruotus skaicius
+2. Naudota vektoriai
+3. Atsitiktinai sugeneruoti pazymiai isvedami i ekrana, kadangi kitaip ju nezinosime (praeitose versijose vartotojas pats jas irase, todel viska mateme)
  
