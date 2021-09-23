@@ -39,13 +39,18 @@ double vidurkis(vector<double> nd, double sum);
 void print(studentas& kint);
 void pild(studentas& kint);
 studentas studentai[30]; //sukuriamas studentu sarasas
-bool ar_turi_skaiciu(string s)
+bool ar_turi_skaiciu(string s) //tikrinam ar zodyje nera netycia ivestu skaiciu
 {
     return (s.find_first_of("0123456789") != string::npos);
 };
 //rusiuojam pagal varda
 bool cmp(const studentas& s1, const studentas& s2) {
     return s1.vardas < s2.vardas;
+}
+//tikrinisim ar failas nera tuscias
+bool is_empty(std::ifstream& pFile) 
+{
+    return pFile.peek() != std::ifstream::traits_type::eof();
 }
 
 
@@ -95,8 +100,13 @@ void skaitymas(vector<studentas>& kint, int* pazymiu_sk)
     double sum;
     std::ifstream fileRead;
     string failas; // laikyti string tipui
-    fileRead.open("kursiokai.txt");
-    if (fileRead.is_open())
+    fileRead.open("kursiokai2.txt");
+    if (!fileRead)
+    {
+        cout << "Failas nera atidarytas!" << endl;
+        exit(EXIT_FAILURE);
+    }
+    if (is_empty(fileRead))
     {
         getline(fileRead >> std::ws, failas); //ws nepraleidzia tarpu
         *pazymiu_sk = KiekZodziu(failas) - 3; //atimame 3 (vardas,pavarde,egzaminas)
@@ -124,16 +134,14 @@ void skaitymas(vector<studentas>& kint, int* pazymiu_sk)
                 
                 
             }
-            cout << endl;
-            cout << "pazymiu skaicius: " << *pazymiu_sk << endl;
-            cout << endl;
-            //cout << "vidurkis: " << vid << endl;
-            
+            //cout << endl;
+            //cout << "pazymiu skaicius: " << *pazymiu_sk << endl;
+            //cout << endl;            
             fileRead >> kint.at(stud_sk).egz;
             cout << "egzamino paz: " << kint.at(stud_sk).egz << endl;
             int m; //pagal si kintamaji nusprendziam ar vartotojas nori medianos ar vidurkio; 
             cout << "Jeigu norite, kad galutinis pazymys butu su vidurkiu iveskite 0, jeigu su mediana - 1: "; cin >> m; cout << endl;
-            if (m == 0)
+            if (m == -1)
             {
                 kint.at(stud_sk).galutinis = mediana(kint.at(stud_sk).nd) * 0.4 + 0.6 * kint.at(stud_sk).egz;
             }
@@ -141,14 +149,11 @@ void skaitymas(vector<studentas>& kint, int* pazymiu_sk)
             {
                 kint.at(stud_sk).galutinis = vidurkis(kint.at(stud_sk).nd, sum) * 0.4 + 0.6 * kint.at(stud_sk).egz;
             }
-            //std::cout << kint.at(stud_sk).vard;
-            //kint.at(stud_sk).galutinis = kint.at(stud_sk).galutinis / *pazymiu_sk;
-            //kint.at(stud_sk).galutinis = kint.at(stud_sk).galutinis * 0.4 + 0.6 * kint.at(stud_sk).egz;
             stud_sk++;
         }
      
     }
-    else { std::cout << "-\n"; }
+    else { cout << "FAILAS TUSCIAS!"; }
 
     
 }
@@ -193,8 +198,9 @@ double mediana(vector<double> nd)
 double vidurkis(vector<double> nd, double sum)
 {
     double vid = 0;
-    size_t size = nd.size();
-    return vid = sum / nd.size();
+    double n = nd.size();
+    n = n * 1.00;
+    return vid = sum / n ;
 }
 
 
@@ -208,7 +214,8 @@ void pild(studentas& kint) //informacijos pildymo funkcija
     double vid = 0; // visu pazymiu vidurkis
     double mediana = 0;
     cout << "Iveskite studento vardo ir pavarde: "; cin >> kint.vardas >> kint.pavarde;
-    cout << "P.S. Jeigu netycia  pvz.: vietoj raides ivedete skaiciu, uzbaikite rasyti viska toliau ir tuomet vel automatiskai atsiras galimybe parasyti viska is naujo.";
+    cout << "P.S. Jeigu netycia  pvz.: vietoj raides ivedete skaiciu, uzbaikite rasyti viska toliau ir tuomet vel automatiskai " << endl;
+    cout << "atsiras galimybe parasyti viska is naujo." << endl;
     cout << "Programa neissaugos apie studenta informacijos" << endl;
     cout << "Parasykite, jeigu zinote namu darbu skaiciu (1-10), jeigu nezinote, parasykite '-1'" << endl;
     cout << "jeigu norite, kad skaiciai butu generuojami atsitiktinai parasykite '-2'" << endl;
@@ -228,9 +235,14 @@ void pild(studentas& kint) //informacijos pildymo funkcija
                 sum = sum + kint.nd[k - 1];
                 k++;
             }
+            else if (n < 0 || isdigit(n) == false)
+            {
+                cout << "Ivestas simbolis nera skaicius 1-10!" << endl;
+                exit(EXIT_FAILURE);
+            }
             else
             {
-                cout << "Ivestas simbolis nera skaicius, rasykite dar karta!";
+                break;
             }
         }
         int p = 0;
