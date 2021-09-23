@@ -17,4 +17,8 @@
 1. Sukurta dar viena 'if' salyga, kurioje vartotojas irases '-2' gaus atsitiktinai sugeneruotus skaicius
 2. Naudota vektoriai
 3. Atsitiktinai sugeneruoti pazymiai isvedami i ekrana, kadangi kitaip ju nezinosime (praeitose versijose vartotojas pats jas irase, todel viska mateme)
+
+* v0.2
+1. Paliktas budas tik su vektoriumi.
+2. Dabar vartotojas turi pasirinkima: ar failai bus ivedineti ranka ar skaitomi is failo
  
