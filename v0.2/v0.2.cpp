@@ -71,8 +71,13 @@ int main()
     }
     else
     {
-        int m; //studentu skaicius
+        double m; //studentu skaicius
         cout << "Iveskite studentu skaiciu: "; cin >> m; cout << endl;
+        if (abs(m - int(m)) > 0)
+        {
+            cout << "Ivestas skaicius turi buti sveikasis! Pabandykite is naujo" << endl;
+            exit(EXIT_FAILURE);
+        }
         for (int i = 0; i < m; i++)
         {
             do {
@@ -246,7 +251,7 @@ void pild(studentas& kint) //informacijos pildymo funkcija
             }
         }
         int p = 0;
-        p = kint.nd.size(); //atimame viena, kadangi gale irasome 0
+        p = kint.nd.size(); 
         vid = sum / p;
         sort(kint.nd.begin(), kint.nd.end());
         if (p % 2 != 0)
