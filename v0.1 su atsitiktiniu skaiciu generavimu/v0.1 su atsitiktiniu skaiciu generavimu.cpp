@@ -3,6 +3,9 @@
 #include <string>
 #include <algorithm>
 #include <vector>
+#include <ctype.h>
+#include <stdlib.h> 
+#include <stdio.h>      
 using std::cout;
 using std::cin;
 using std::setprecision;
@@ -25,13 +28,23 @@ struct studentas {
 void print(studentas& kint);
 void pild(studentas& kint);
 studentas studentai[30]; //sukuriamas studentu sarasas
+bool ar_turi_skaiciu(string s)
+{
+    return (s.find_first_of("0123456789") != string::npos);
+};
 
 int main()
 {
     int m; //studentu skaicius
     cout << "Iveskite studentu skaiciu: "; cin >> m; cout << endl;
     for (int i = 0; i < m; i++)
-        pild(studentai[i]); //bus pildoma informacija apie studenta
+    {
+        do {
+            pild(studentai[i]); //bus pildoma informacija apie studenta
+        } while (ar_turi_skaiciu(studentai[i].vardas) || ar_turi_skaiciu(studentai[i].pavarde));
+
+    }
+
     cout << left << setw(12) << "Pavarde" << setw(12) << "Vardas" << setw(10) << "Galutinis (vid.) / Galutinis (med.)" << endl;
     cout << "---------------------------------------------------------------" << endl;
     for (int i = 0; i < m; i++)
@@ -39,14 +52,18 @@ int main()
 
 }
 
+
 void pild(studentas& kint) //informacijos pildymo funkcija
 {
     int n; //namu darbu skaicius
     int sk;
     double sum = 0; //bus saugoma bendra visu pazymiu suma
-    double vid = 0; // visu pazymiu vidurkis
+    double vid = 0; //pazymiu vidurkis
     double mediana = 0;
     cout << "Iveskite studento vardo ir pavarde: "; cin >> kint.vardas >> kint.pavarde;
+    cout << "P.S. Jeigu netycia  pvz.: vietoj raides ivedete skaiciu, uzbaikite rasyti viska toliau ir tuomet vel automatiskai" << endl;
+    cout << "atsiras galimybe parasyti viska is naujo." << endl;
+    cout << "Programa neissaugos apie studenta informacijos" << endl;
     cout << "Parasykite, jeigu zinote namu darbu skaiciu (1-10), jeigu nezinote, parasykite '-1'" << endl;
     cout << "jeigu norite, kad skaiciai butu generuojami atsitiktinai parasykite '-2'" << endl;
     cin >> sk;
@@ -59,11 +76,16 @@ void pild(studentas& kint) //informacijos pildymo funkcija
         while (k > 0)
         {
             cin >> n;
-            if (n > 0)
+            if (n > 0 && n <= 10)
             {
                 kint.nd.push_back(n);
                 sum = sum + kint.nd[k - 1];
                 k++;
+            }
+            else if (n < 0 || isdigit(n) == false)
+            {
+                cout << "Ivestas simbolis nera skaicius 1-10!" << endl;
+                exit(EXIT_FAILURE);
             }
             else
             {
