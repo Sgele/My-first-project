@@ -35,21 +35,29 @@ bool ar_turi_skaiciu(string s)
 
 int main()
 {
-    int m; //studentu skaicius
+    double m; //studentu skaicius
     cout << "Iveskite studentu skaiciu: "; cin >> m; cout << endl;
-    for (int i = 0; i < m; i++)
+    if (abs(m - int(m)) > 0) 
     {
-        do {
-            pild(studentai[i]); //bus pildoma informacija apie studenta
-        } while (ar_turi_skaiciu(studentai[i].vardas) || ar_turi_skaiciu(studentai[i].pavarde));
-
+        cout << "Ivestas skaicius turi buti sveikasis! Pabandykite is naujo" << endl;
+        exit(EXIT_FAILURE);
     }
+    else
+    {
 
-    cout << left << setw(12) << "Pavarde" << setw(12) << "Vardas" << setw(10) << "Galutinis (vid.) / Galutinis (med.)" << endl;
-    cout << "---------------------------------------------------------------" << endl;
-    for (int i = 0; i < m; i++)
-        print(studentai[i]); //spausdinami rezultatai 
+        for (int i = 0; i < m; i++)
+        {
+            do {
+                pild(studentai[i]); //bus pildoma informacija apie studenta
+            } while (ar_turi_skaiciu(studentai[i].vardas) || ar_turi_skaiciu(studentai[i].pavarde));
 
+        }
+
+        cout << left << setw(12) << "Pavarde" << setw(12) << "Vardas" << setw(10) << "Galutinis (vid.) / Galutinis (med.)" << endl;
+        cout << "---------------------------------------------------------------" << endl;
+        for (int i = 0; i < m; i++)
+            print(studentai[i]); //spausdinami rezultatai 
+    }
 }
 
 
@@ -93,7 +101,7 @@ void pild(studentas& kint) //informacijos pildymo funkcija
             }
         }
         int p = 0;
-        p = kint.nd.size(); //atimame viena, kadangi gale irasome 0
+        p = kint.nd.size(); 
         vid = sum / p;
         sort(kint.nd.begin(), kint.nd.end());
         if (p % 2 != 0)
@@ -146,7 +154,7 @@ void pild(studentas& kint) //informacijos pildymo funkcija
         kint.egz = rand() % 10 + 1;
         cout << "Atsitiktinai sugeneruotas egzamino pazymys: " << kint.egz << endl;
         int p = 0;
-        p = kint.nd.size(); //atimame viena, kadangi gale irasome 0
+        p = kint.nd.size(); 
         vid = sum / p;
         sort(kint.nd.begin(), kint.nd.end());
         if (p % 2 != 0)
