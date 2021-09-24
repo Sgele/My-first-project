@@ -183,7 +183,7 @@ void pild(studentas& kint, int x) //informacijos pildymo funkcija
                 cout << "Veskite simoli dar karta: ";
                 cin >> kint.egz;
             }
-        } while (cin.fail() == true || kint.egz <= 0);
+        } while (cin.fail() == true || kint.egz <= 0 || kint.egz > 10);
 
         sort(kint.nd.begin(), kint.nd.end());
         if (sk % 2 != 0)
