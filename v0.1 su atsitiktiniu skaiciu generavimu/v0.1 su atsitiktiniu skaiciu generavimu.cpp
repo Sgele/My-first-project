@@ -26,17 +26,19 @@ struct studentas {
 };
 
 void print(studentas& kint);
-void pild(studentas& kint);
+void pild(studentas& kint, int x);
 studentas studentai[30]; //sukuriamas studentu sarasas
 bool ar_turi_skaiciu(string s)
 {
     return (s.find_first_of("0123456789") != string::npos);
 };
 
+
+
 int main()
 {
     double m; //studentu skaicius
-    cout << "Iveskite studentu skaiciu: "; cin >> m; cout << endl;
+    cout << "Iveskite studentu skaiciu: "; cin >> m; cout << endl;  
     if (abs(m - int(m)) > 0) 
     {
         cout << "Ivestas skaicius turi buti sveikasis! Pabandykite is naujo" << endl;
@@ -44,16 +46,18 @@ int main()
     }
     else
     {
+        int x;
+        cout << "Jeigu norite, kad galutinis balas butu su vidurkiu rasykite '0', jeigu su mediania '1': "; cin >> x; cout << endl;
 
         for (int i = 0; i < m; i++)
         {
             do {
-                pild(studentai[i]); //bus pildoma informacija apie studenta
+                pild(studentai[i], x); //bus pildoma informacija apie studenta
             } while (ar_turi_skaiciu(studentai[i].vardas) || ar_turi_skaiciu(studentai[i].pavarde));
 
         }
 
-        cout << left << setw(12) << "Pavarde" << setw(12) << "Vardas" << setw(10) << "Galutinis (vid.) / Galutinis (med.)" << endl;
+        cout << left << setw(12) << "Pavarde" << setw(12) << "Vardas" << setw(10) << ((x==0)? "Galutinis (vid.)": "Galutinis(med.)") << endl;
         cout << "---------------------------------------------------------------" << endl;
         for (int i = 0; i < m; i++)
             print(studentai[i]); //spausdinami rezultatai 
@@ -61,9 +65,10 @@ int main()
 }
 
 
-void pild(studentas& kint) //informacijos pildymo funkcija
+void pild(studentas& kint, int x) //informacijos pildymo funkcija
 {
-    int n; //namu darbu skaicius
+    
+    double n; //namu darbu skaicius
     int sk;
     double sum = 0; //bus saugoma bendra visu pazymiu suma
     double vid = 0; //pazymiu vidurkis
@@ -84,16 +89,26 @@ void pild(studentas& kint) //informacijos pildymo funkcija
         while (k > 0)
         {
             cin >> n;
+        do {
+            try {
+                if (cin.fail() || n <= -1 || n > 10) {
+                    throw std::runtime_error("Ivedete ne toki simboli!!!\n");
+                }
+            }
+            catch (const std::runtime_error& e) {
+                cout << e.what();
+                cin.clear();
+                cin.ignore(256, '\n');
+                cout << "Veskite simoli dar karta: ";
+                cin >> n;
+            }
+        } while (cin.fail() == true || n <= -1 || n > 10);
+
             if (n > 0 && n <= 10)
             {
                 kint.nd.push_back(n);
                 sum = sum + kint.nd[k - 1];
                 k++;
-            }
-            else if (n < 0 || isdigit(n) == false)
-            {
-                cout << "Ivestas simbolis nera skaicius 1-10!" << endl;
-                exit(EXIT_FAILURE);
             }
             else
             {
@@ -113,6 +128,20 @@ void pild(studentas& kint) //informacijos pildymo funkcija
             mediana = (double)(kint.nd[(p - 1) / 2] + kint.nd[p / 2]) / 2.0;
         }
         cout << "Iveskite egzamino pazymi: "; cin >> kint.egz;
+        do {
+            try {
+                if (cin.fail() || kint.egz <= 0 || kint.egz > 10) {
+                    throw std::runtime_error("Ivedete ne toki simboli!!!\n");
+                }
+            }
+            catch (const std::runtime_error& e) {
+                cout << e.what();
+                cin.clear();
+                cin.ignore(256, '\n');
+                cout << "Veskite simoli dar karta: ";
+                cin >> kint.egz;
+            }
+        } while (cin.fail() == true || kint.egz <= 0 || kint.egz > 10);
 
     }
     if (sk > 0)
@@ -121,14 +150,42 @@ void pild(studentas& kint) //informacijos pildymo funkcija
         for (int i = 0; i < sk; i++)
         {
             cin >> n;
+        do {
+            try {
+                 if (cin.fail() || n <= 0 || n > 10) {
+                        throw std::runtime_error("Ivedete ne toki simboli!!!\n");
+                 }
+                }
+            catch (const std::runtime_error& e) {
+                    cout << e.what();
+                    cin.clear();
+                    cin.ignore(256, '\n');
+                    cout << "Veskite simoli dar karta: ";
+                    cin >> n;
+            }
+            } while (cin.fail() == true || n <= 0 || n > 10);
             kint.nd.push_back(n);
             sum = sum + kint.nd[i];
         }
 
         vid = sum / sk; //skaiciuojame pazymiu vidurki
         cout << "Iveskite egzamino pazymi: "; cin >> kint.egz;
-        sort(kint.nd.begin(), kint.nd.end());
+        do {
+            try {
+                if (cin.fail() || kint.egz <= 0 || kint.egz > 10) {
+                    throw std::runtime_error("Ivedete ne toki simboli!!!\n");
+                }
+            }
+            catch (const std::runtime_error& e) {
+                cout << e.what();
+                cin.clear();
+                cin.ignore(256, '\n');
+                cout << "Veskite simoli dar karta: ";
+                cin >> kint.egz;
+            }
+        } while (cin.fail() == true || kint.egz <= 0);
 
+        sort(kint.nd.begin(), kint.nd.end());
         if (sk % 2 != 0)
             mediana = (double)kint.nd[sk / 2];
         else
@@ -149,8 +206,7 @@ void pild(studentas& kint) //informacijos pildymo funkcija
             cout << kint.nd[i] << endl;
             sum = sum + kint.nd[i];
 
-        }
-        
+        }      
         kint.egz = rand() % 10 + 1;
         cout << "Atsitiktinai sugeneruotas egzamino pazymys: " << kint.egz << endl;
         int p = 0;
@@ -165,16 +221,13 @@ void pild(studentas& kint) //informacijos pildymo funkcija
         {
             mediana = (double)(kint.nd[(p - 1) / 2] + kint.nd[p / 2]) / 2.0;
         }
-       
-
     }
-    int m; //pagal si kintamaji nusprendziam ar vartotojas nori medianos ar vidurkio;
-    cout << "Jeigu norite, kad galutinis pazymys butu su vidurkiu iveskite 0, jeigu su mediana - 1: "; cin >> m; cout << endl;
-    if (m == 0) {
-        kint.galutinis = 0.4 * vid + 0.6 * kint.egz; //apskaiciuojamas galutinis balas
+  
+    if (x == 0) {
+        kint.galutinis = 0.4 * vid + 0.6 * kint.egz; //apskaiciuojamas galutinis balas su vidurkiu
     }
     else {
-        kint.galutinis = 0.4 * mediana + 0.6 * kint.egz;
+        kint.galutinis = 0.4 * mediana + 0.6 * kint.egz; //apskaiciuojamas galutinis balas su vidurkiu
     }
 }
 
@@ -183,3 +236,5 @@ void print(studentas& kint) //spausdinimo funkcija
     cout << left << setw(12) << kint.pavarde << setw(12) << kint.vardas << setw(10) << setprecision(3) << kint.galutinis << endl;
 
 }
+
+
