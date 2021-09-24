@@ -22,4 +22,4 @@
 1. Paliktas budas tik su vektoriumi.
 2. Dabar vartotojas turi pasirinkima: ar failai bus ivedineti ranka ar skaitomi is failo
 3. Yra tikrinimas ar failas nera tuscias
- 
+4. Skaiciu patikrinimas idetas
