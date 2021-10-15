@@ -31,6 +31,6 @@
 1. Paliktas vartotojui pasirinkimas ar jis nori pats duomenis įvesti, ar kad būtų kiekvieną kartą sugeneruojamas .txt failas su pageidaujamu kiekiu įrašų.
 2. Atlikta spartos analizė su sugeneruotais .txt failais (su 10000000 visos spartos analizės atlikti nepavyko).
 **Tyrimas:**
-<img width="400" alt="Screenshot 2021-10-15 140954" src="https://user-images.githubusercontent.com/90323260/137480410-43b488e4-90e8-438f-a4cf-48d732f38380.png">
+![image]<img width="400" alt="Screenshot 2021-10-15 140954" src="https://user-images.githubusercontent.com/90323260/137480410-43b488e4-90e8-438f-a4cf-48d732f38380.png">
 3. Pridėtas studentų rūšiavimas į dvi grupes: `Kietiakai` (studento vidurkis >= 5) ir `Nuskriaustukai` (studento vidurkis < 5). `Kietiakai` ir `Nuskriaustukai` išvedami į du atskirus failus: `Kietiakai.txt` ir `Nuskriaustukai.txt`
 
