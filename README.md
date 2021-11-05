@@ -22,3 +22,19 @@
 2. Dabar vartotojas turi pasirinkima: ar failai bus ivedineti ranka ar skaitomi is failo
 3. Yra tikrinimas ar failas nera tuscias
 4. Skaiciu patikrinimas idetas
+
+* v0.3
+1. Funkcijos išskirtytos į header ir cpp failus.
+2. Kur tikslinga, panaudota išimtys
+
+* v0.4
+1. Paliktas vartotojui pasirinkimas ar jis nori pats duomenis įvesti, ar kad būtų kiekvieną kartą sugeneruojamas .txt failas su pageidaujamu kiekiu įrašų.
+2. Atlikta spartos analizė su sugeneruotais .txt failais (su 10000000 visos spartos analizės atlikti nepavyko).
+![image]<img width="400" alt="Screenshot 2021-10-15 140954" src="https://user-images.githubusercontent.com/90323260/137480410-43b488e4-90e8-438f-a4cf-48d732f38380.png">
+3. Pridėtas studentų rūšiavimas į dvi grupes: `Kietiakai` (studento vidurkis >= 5) ir `Nuskriaustukai` (studento vidurkis < 5). `Kietiakai` ir `Nuskriaustukai` išvedami į du atskirus failus: `Kietiakai.txt` ir `Nuskriaustukai.txt`
+
+* v0.5
+1. Sukurtas programos spartos lyginimas naudojant std::list ir std::vector
+<img width="291" alt="analize" src="https://user-images.githubusercontent.com/90323260/140541568-3d59ca66-265c-458f-838f-3cbfdccaf419.png">
+
+Kompiuterio su kuriuo daryti testai parametrai : Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz   2.70 GHz, 8,00 GB RAM, SSD 237 GB dydžio
