@@ -34,7 +34,7 @@
 3. Pridėtas studentų rūšiavimas į dvi grupes: `Kietiakai` (studento vidurkis >= 5) ir `Nuskriaustukai` (studento vidurkis < 5). `Kietiakai` ir `Nuskriaustukai` išvedami į du atskirus failus: `Kietiakai.txt` ir `Nuskriaustukai.txt`
 
 * v0.5
-1. Sukurtas programos spartos lyginimas naudojant std::list ir std::vector  ![image]
+1. Sukurtas programos spartos lyginimas naudojant std::list ir std::vector 
 <img width="300" alt="pavye=kes su 10000000  tik list-copy1" src="https://user-images.githubusercontent.com/90323260/141202079-5c263f6a-d6c2-4d1d-aeee-80268c94a308.png">
 p.s. su vektoriumi ir 10000000 studentų duomenų failu nepavyko atlikti dalijimo į du sąrašus, laukiau 30min ir tada programą nutraukiau. (dešinėje pusėje matomas laikas)
 <img width="876" alt="10000000 failo dalijimas, nepavykes copy" src="https://user-images.githubusercontent.com/90323260/141202801-dbb2c170-3dc4-4c6c-9c2c-2848354f95ed.png">
