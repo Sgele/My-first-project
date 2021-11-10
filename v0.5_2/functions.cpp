@@ -1,15 +1,15 @@
 #include "functions.h"
 
-vector<studentas> ivedimas_struct(int kiek)
+void ivedimas_struct(vector<studentas>&studentai,int kiek)
 {
 
     clock_t begin = clock();
     ifstream failas;
-    vector<studentas> studentai;
+    //vector<studentas> studentai(kiek + 10);
     string pavadinimas = "studentai" + to_string(kiek) + ".txt";
     failas.open(pavadinimas);
     int temp;
-    for (int i = 0; i < kiek; i++)
+    for (float i = 0; i < kiek; i++)
     {
         studentas st;
         failas >> st.vardas >> st.pavarde;
@@ -18,28 +18,26 @@ vector<studentas> ivedimas_struct(int kiek)
             failas >> temp;
             st.nd.push_back(temp);
         }
-        failas >> temp;
-        st.egz = temp;
-        failas >> temp;
-        st.rezultatas = temp;
+        failas >> st.egz;
+        failas >> st.rezultatas;
         studentai.push_back(st);
     }
     failas.close();
-
+    cout << studentai.size() << endl;
     clock_t end = clock();
     double laikas_sekundemis = double(end - begin) / CLOCKS_PER_SEC;
     cout << kiek << " failo nuskaitymo trukme: " << laikas_sekundemis << " sec." << endl;
-    return studentai;
+
 }
 
-void dalijimas_struct(vector<studentas> studentai)
+void dalijimas_struct(vector<studentas> &studentai)
 {
     int dydis = studentai.size();
     // Dalijimas
     clock_t begin = clock();
     vector<studentas> kvaili;
     vector<studentas> protingi;
-    for (int i = 0; i < dydis; i++)
+    for (double i = dydis; i > 0; i--)
     {
         studentas stud = studentai.back();
         studentai.pop_back();
@@ -51,12 +49,15 @@ void dalijimas_struct(vector<studentas> studentai)
         {
             protingi.push_back(stud);
         }
-
+        kvaili.shrink_to_fit();
+        protingi.shrink_to_fit();
 
     }
     clock_t end = clock();
     double laikas_sekundemis = double(end - begin) / CLOCKS_PER_SEC;
     cout << dydis << " failo dalijimo trukme: " << laikas_sekundemis << " sec." << endl;
+    kvaili.clear();
+    protingi.clear();
 
 
 }
@@ -65,7 +66,9 @@ void testuoti_struct(int kiek)
 {
     clock_t begin = clock();
 
-    vector<studentas> studentai = ivedimas_struct(kiek);
+    vector<studentas> studentai;
+    studentai.reserve(kiek + 10);
+    ivedimas_struct(studentai,kiek);
 
     dalijimas_struct(studentai);
 

@@ -26,8 +26,8 @@ struct studentas
     float rezultatas;
 };
 
-vector<studentas> ivedimas_struct(int kiek);
-void dalijimas_struct(vector<studentas> studentai);
+void ivedimas_struct(vector<studentas>&studentai,int kiek);
+void dalijimas_struct(vector<studentas> &studentai);
 void testuoti_struct(int kiek);
 list<studentas> ivedimas_list(int kiek);
 void dalijimas_list(list<studentas> studentai);
