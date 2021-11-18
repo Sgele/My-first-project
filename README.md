@@ -41,3 +41,64 @@ p.s. su vektoriumi ir 10000000 studentų duomenų failu nepavyko atlikti dalijim
 
 
 Kompiuterio su kuriuo daryti testai parametrai : Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz   2.70 GHz, 8,00 GB RAM, SSD 237 GB dydžio
+
+* v1.0
+<BR>
+(Lentelėje skaičiai pateikiami sekundėmis)
+<table>
+<thead>
+  <tr>
+    <th></th>
+    <th colspan="2">v0.5</th>
+    <th colspan="2">1</th>
+    <th colspan="2">2</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td></td>
+    <td>VECTOR</td>
+    <td>LIST</td>
+    <td>VECTOR</td>
+    <td>LIST</td>
+    <td>VECTOR</td>
+    <td>LIST</td>
+  </tr>
+  <tr>
+    <td>1000</td>
+    <td>0.029</td>
+    <td>0.027</td>
+    <td>0.049</td>
+    <td>0.031</td>
+    <td>0.038</td>
+    <td>0.026</td>
+  </tr>
+  <tr>
+    <td>10000</td>
+    <td>0.357</td>
+    <td>0.36</td>
+    <td>0.22</td>
+    <td>0.225</td>
+    <td>0.184</td>
+    <td>0.196</td>
+  </tr>
+  <tr>
+    <td>100000</td>
+    <td>2.024</td>
+    <td>2.037</td>
+    <td>1.845</td>
+    <td>1.855</td>
+    <td>1.713</td>
+    <td>1.756</td>
+  </tr>
+  <tr>
+    <td>1000000</td>
+    <td>21.661</td>
+    <td>21.997</td>
+    <td>19.996</td>
+    <td>19.995</td>
+    <td>17.741</td>
+    <td>18.196</td>
+  </tr>
+</tbody>
+</table>
