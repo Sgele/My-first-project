@@ -43,6 +43,9 @@ p.s. su vektoriumi ir 10000000 studentų duomenų failu nepavyko atlikti dalijim
 Kompiuterio su kuriuo daryti testai parametrai : Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz   2.70 GHz, 8,00 GB RAM, SSD 237 GB dydžio
 
 * v1.0
+1. Pateikiamos 3 skirtingos rūšiavimo strategijos.
+2. v0.5 strategija yra mano naudota praeitame kode, kai nustatai ar studentas priklauso "vargšams", ar "protingiems" ir įdedu į atitinkamą. Pabaigoje pradinis vektorius lieka tuščias, o du "vargšai" ir "protingi" pripildyti.
+
 <BR>
 (Lentelėje skaičiai pateikiami sekundėmis)
 <table>
