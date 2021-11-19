@@ -74,7 +74,7 @@ Kompiuterio su kuriuo daryti testai parametrai : Intel(R) Core(TM) i5-7200U CPU 
     <td>0.049</td>
     <td>0.031</td>
     <td>0.038</td>
-    <td>0.026</td>
+    <td><b>0.026</b></td>
   </tr>
   <tr>
     <td>10000</td>
@@ -82,7 +82,7 @@ Kompiuterio su kuriuo daryti testai parametrai : Intel(R) Core(TM) i5-7200U CPU 
     <td>0.36</td>
     <td>0.22</td>
     <td>0.225</td>
-    <td>0.184</td>
+    <td><b>0.184</b></td>
     <td>0.196</td>
   </tr>
   <tr>
@@ -91,7 +91,7 @@ Kompiuterio su kuriuo daryti testai parametrai : Intel(R) Core(TM) i5-7200U CPU 
     <td>2.037</td>
     <td>1.845</td>
     <td>1.855</td>
-    <td>1.713</td>
+    <td><b>1.713</b></td>
     <td>1.756</td>
   </tr>
   <tr>
@@ -100,7 +100,7 @@ Kompiuterio su kuriuo daryti testai parametrai : Intel(R) Core(TM) i5-7200U CPU 
     <td>21.997</td>
     <td>19.996</td>
     <td>19.995</td>
-    <td>17.741</td>
+    <td><b>17.741</b></td>
     <td>18.196</td>
   </tr>
 </tbody>
