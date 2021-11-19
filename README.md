@@ -105,3 +105,12 @@ Kompiuterio su kuriuo daryti testai parametrai : Intel(R) Core(TM) i5-7200U CPU 
   </tr>
 </tbody>
 </table>
+
+<br>
+Išvada: Mano atveju, 2-oji strategija pasirodė greičiausia.
+<br>
+<br>
+<b>Instrukcija</b><br>
+1. Parsisiųsti main.cpp failą<br>
+2. Atsidaryti main.cpp failą su tinkama programa (aš naudoju VisualStudio)<br>
+3. Pasileisti programą<br>
